@@ -1,9 +1,11 @@
 import "./App.css";
-import { useReducer } from "react";
-import { counter, increment, reset } from "./counter";
+
+import { increment, reset } from "./counter";
+import { useDispatch } from "react-redux";
 
 function CounterRedux() {
-  const [count, dispatch] = useReducer(counter, 0);
+  const count = 0;
+  const dispatch = useDispatch();
 
   return (
     <div className="App">
