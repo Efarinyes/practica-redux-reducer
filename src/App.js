@@ -1,17 +1,20 @@
-import CounterReduxReducer from "./CounterReduxReducer";
 import { createStore } from "redux";
-import { counter, increment } from "./counter";
+import { counter } from "./counter";
+import { Provider } from "react-redux";
+import CounterRedux from "./CounterRedux";
+import CounterReduxReducer from "./CounterReduxReducer";
 
 const store = createStore(counter, 0);
-store.dispatch(increment(+1));
-console.log("state", store.getState());
 
 function App() {
   return (
-    <>
-      <CounterReduxReducer />
-      <CounterReduxReducer />
-    </>
+    <Provider store={store}>
+      <>
+        <CounterRedux />
+        <CounterReduxReducer />
+        <CounterReduxReducer />
+      </>
+    </Provider>
   );
 }
 export default App;
