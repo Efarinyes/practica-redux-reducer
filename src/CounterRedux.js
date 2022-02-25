@@ -1,14 +1,18 @@
-import "./App.css";
 
-import { increment, reset } from "./counter";
-import { useDispatch } from "react-redux";
+import './App.css';
+import { increment, reset, getCount } from "./counter";
+import { useDispatch, useSelector } from "react-redux";
+
 
 function CounterRedux() {
-  const count = 0;
+  const count = useSelector( getCount);
   const dispatch = useDispatch();
 
+  
   return (
+     
     <div className="App">
+     
       <h1> Comptador Redux </h1>
       <div> {count} </div>
       <button onClick={() => dispatch(increment(+1))}>+1</button>
@@ -16,5 +20,6 @@ function CounterRedux() {
       <button onClick={() => dispatch(increment(-1))}>-1</button>
     </div>
   );
+ 
 }
 export default CounterRedux;
